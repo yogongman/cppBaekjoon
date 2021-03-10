@@ -9,6 +9,7 @@ int answer = 0;
 void dfs(int n){
     if(check[n]) return;
     answer++;
+    cout<<n;
     check[n] = 1;
     for(int i=0; i<net[n].size(); i++){
         int y = net[n][i];
