@@ -2,6 +2,8 @@
     "files.associations": {
         "hash_map": "cpp",
         "xstring": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "iostream": "cpp",
+        "utility": "cpp"
     }
 }
