@@ -1,27 +1,40 @@
 #include<iostream>
-#include<queue>
+#include<set>
 using namespace std;
 int main(){
-    ios::sync_with_stdio(false);
-    cin.tie(0); cout.tie(0);
-    priority_queue<int> mh;
-    int num,tmp;   
-    cin>>num;
-    for(int i=0; i<num; i++){
-        cin>>tmp;
-        if(!tmp){
-            if(mh.empty()){
-                cout<<0<<"\n";
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    char c;
+    int tc,n,tmp;
+    cin>>tc;
+    while(tc--){
+        cin>>n;
+        multiset<int> ar;
+        while(n--){
+            cin>> c >> tmp;
+            if(c=='I'){
+                ar.insert(tmp);
             }
             else{
-                cout<<mh.top()<<"\n";
-                mh.pop();
+                if(tmp == -1 && !ar.empty()){
+                    ar.erase(ar.begin()); // begin = 시작 값 = 최소값
+                }
+                else if(tmp == 1 && !ar.empty()){
+                    auto end_i = ar.end();
+                    end_i--;
+                    ar.erase(end_i);
+                }
             }
         }
+        if(ar.empty()) cout<<"EMPTY"<<"\n";
         else{
-            mh.push(tmp);
+            auto end = ar.end();
+            end--;
+            cout<<*end<<" "<<*ar.begin()<<"\n";
         }
     }
+    
     return 0;
 
 }
