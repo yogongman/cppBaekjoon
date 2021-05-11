@@ -1,0 +1,37 @@
+함수인자로 단순 stl 자료형을 그대로 전달하는 경우 ex) void ex(vector<int> a) #call by value
+void ex(int a)에서 변수 a와 같이 값을 복사해오고 값을 함수 내에서 사용하는 것(call by value) 처럼 변수의 원본은 바뀌지 않는다
+즉 void ex(vector<int> a, int idx) 처럼 vector 자료형에서 단순히 단일부분만 참조하기에는 a 전부를 복사해오기 떄문에 비효율적이다.
+
+포인터와 비슷하게 효율적으로 사용하기 위해서 참조자를 사용한다.
+ex) void ex(vector<int> &a, int idx) #call by reference
+
++ 배열을 인자로 전달할 경우 ex) void arr(int a[]) #call by address
+  int *a와 같이 주소를 전달하기 떄문에 참조자를 쓸 필요가 없다.
+
+
+하지만 참조자와 포인터는 다르다.
+(참조자와 포인터의 차이)
+            포인터                 /                  참조자
+NULL 존재                            NULL 존재하지 않음
+주소값 할당 (메모리 공간 소모)         참조 대상을 할당(메모리 공간 소모 X)
+주소 접근 가능(ptr++ / ptr-- ... )    불가능
+
+----할당되는 것의 차이----
+int i=100; 이라 했을 떄 변수 i를 참조할 경우
+
+포인터 => 해당 변수의 주소를 포인터 변수에 따로 할당 ex) int* ptr = &i     #i의 주소 값:  ptr => 0x102340
+                                                                       #ptr의 주소 값 &ptr != 0x102340
+||즉 별도의 메모리 공간을 소모||
+
+참조자 => 해당 변수와 동일한 메모리 공간을 할당(그냥 해당 변수의 별명인 느낌
+ex) int& ref = i;  #그냥 i의 메모리 공간을 참조     #i 자체(메모리 공간)를 참조 ref => 100 ==> i의 메모리 주소 == ref의 메모리주소
+||별도의 메모리 공간 소모 X||
+
+
+
+
+
+
+
+
+https://github.com/dlekgns6743/cppBaekjoon/blob/main/basic/1920.cpp 참조
