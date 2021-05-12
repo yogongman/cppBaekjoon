@@ -1,0 +1,45 @@
+https://blog.encrypted.gg/923 출처: 바킹독님의 블로그, 유튜브
+
+
+표준 입출력
+
+    cin,cout으로 입력 받을 때
+
+1. 공백을 포함한 입력을 받아야 할 때 -> ㄱ.scanf("%[^\n]",~)처럼 개행 전 까지 입력 받는다는 것을 명시해줌.
+                                      ㄴ.getline을 이용한다(string으로 받아야함)
+
+1-1. getline을 사용하는 경우 그 이전에 입력(cin)에 의해 버퍼에 "\n"이 남아있을 경우
+(cin은 개행문자를 버퍼에 남겨둠) + (getline은 버퍼에 남기지 않기에 getline만 쓸 경우에는 cin.ignore() 필요 X)
+cin.ignore을 통해 버퍼를 비워줘야 한다(실제로는 입력버퍼 맨 앞의 문자 하나를 지운다).
+
+https://www.acmicpc.net/board/view/47455 백준 질문(cin.ignore() 관련)
+
+string a,b;
+cin >> b;
+getline(cin, a);
+입력:
+aaaa
+bb bb
+일 경우 a = "aaaa" b = "\n"이 됨
+
+
+2. 시간초과 관련 ios::sync_with_stdio(0),cin.tie(0)
+ios::sync_with_stdio(false)
+원래 기본적으로 C에서의 stream과 C++ 의 stream을 동기화함(stream 순서가 꼬이지 않게 하기 위해)
+C++에서 cin,cout만 사용하는 경우에는 위의 과정이 필요하지 않음(동기화에 시간이 걸림).
+동기화 옵션을 끄기위해 사용하는 것.
+ 
+cin.tie(nullptr)
+입력과 출력이 번갈아 이루어질 경우, 입출력 버퍼에 의해 순서가 꼬일 수 있다.
+이를 방지하기 위해서 cin이 되기 전에 cout 버퍼를 비워주는데
+온라인 저지 사이트에서는 단순히 출력 글자만 확인을 하기 떄문에 굳이 필요 없다.
+
+3.endl 개행
+endl은 개행 뿐만 아니라 출력 버퍼를 비우는 명령을 포함하고 있기 떄문에 시간상 오래 걸린다.
+endl 대신에  "\n" 개행문자를 쓰자.
+
+
+
+
+
+
