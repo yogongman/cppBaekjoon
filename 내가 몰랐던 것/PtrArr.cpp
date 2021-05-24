@@ -11,5 +11,4 @@ int main(){
     cout<<ptr[0][1];
     cout<<&ptr[0];
     cout<<adr[0];
-    cout<<[]
 }
