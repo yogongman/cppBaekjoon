@@ -1,2 +1,2 @@
 
-                            atmp++;
+    //             visited[j][i] = 1;
