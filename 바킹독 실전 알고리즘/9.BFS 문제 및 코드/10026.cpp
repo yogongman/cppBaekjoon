@@ -1,7 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 int N;
-char tmpC='F';
 char tmp;
 int visited[101][101];
 int dx[]={1,0,-1,0};
@@ -19,9 +18,8 @@ int main(){
     memset(visited,0,sizeof(visited));
     for(int i=0; i<N; i++){
         for(int j=0; j<N; j++){
-            if(pic[i][j] != tmpC && visited[i][j] == 0){
+            if(visited[i][j] == 0){
                 case1++;
-                tmpC = pic[i][j];
                 Q.push({i,j});
                 visited[i][j] = 1;
                 while(!Q.empty()){
@@ -29,8 +27,10 @@ int main(){
                     for(int i=0; i<4; i++){
                         int nx = cur.first + dx[i];
                         int ny = cur.second + dy[i];
+                        pic[cur.first][cur.second];
                         if(nx<0 || ny<0 || nx>=N || ny>=N) continue;
-                        if(visited[nx][ny] == 1 || tmpC != pic[nx][ny]) continue;
+                        if(visited[nx][ny] == 1 || pic[nx][ny] !=pic[cur.first][cur.second]) continue;
+                        if(pic[nx][ny] != pic[cur.first][cur.second]) case1++;
                         Q.push({nx,ny});
                         visited[nx][ny] = 1;
                     }
@@ -40,7 +40,6 @@ int main(){
     } //적록색약 아닌 사람
     memset(visited,0,sizeof(visited));
     Q = queue<pair<int,int>>();
-    tmpC = 'F';
     for(int i=0; i<N; i++){
         for(int j=0; j<N; j++){
             tmp = pic[i][j];
@@ -50,9 +49,8 @@ int main(){
     }
     for(int i=0; i<N; i++){
         for(int j=0; j<N; j++){
-            if(pic[i][j] != tmpC && visited[i][j] == 0){
+            if(visited[i][j] == 0){
                 case2++;
-                tmpC = pic[i][j];
                 Q.push({i,j});
                 visited[i][j] = 1;
                 while(!Q.empty()){
@@ -61,7 +59,8 @@ int main(){
                         int nx = cur.first + dx[i];
                         int ny = cur.second + dy[i];
                         if(nx<0 || ny<0 || nx>=N || ny>=N) continue;
-                        if(visited[nx][ny] == 1 || tmpC != pic[nx][ny]) continue;
+                        if(visited[nx][ny] == 1 || pic[nx][ny] != pic[cur.first][cur.second]) continue;
+                        if(pic[nx][ny] != pic[cur.first][cur.second]) case1++;
                         Q.push({nx,ny});
                         visited[nx][ny] = 1;
                     }
