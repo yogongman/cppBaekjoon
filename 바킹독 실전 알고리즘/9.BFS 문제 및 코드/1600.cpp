@@ -29,7 +29,7 @@ int main(){
             return 0;
         }
         if(cur.second >= 1){
-            for(int i=0; i<6; i++){
+            for(int i=0; i<8; i++){
                 int nx = cur.first.first + dx1[i];
                 int ny = cur.first.second + dy1[i];
                 if(nx<0 || ny<0 || nx>=w || ny>=h) continue;
