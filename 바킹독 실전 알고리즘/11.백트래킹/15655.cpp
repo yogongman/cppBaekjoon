@@ -31,7 +31,4 @@ int main(){
     }
     sort(arr,arr+n);
     func(0,0);
-
-
-
 }
