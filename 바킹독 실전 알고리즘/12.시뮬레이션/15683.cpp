@@ -193,7 +193,6 @@ void brute(int k){
     if(k == cam.size()){
         board = boardtmp;
         for(int i=0; i<k; i++){
-
             if(cam[i].second == 1){
                 one(cam[i].first.first,cam[i].first.second,arr[i]);
             }
