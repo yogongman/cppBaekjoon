@@ -1,23 +1,10 @@
 #include<iostream>
 #include<string>
 #include<algorithm>
-#include<stack>
 using namespace std;
 int arr[1001][1001];
-stack<char> res;
-int c;
-string a,b;
-void rec(int x,int y){
-    if(arr[x][y] == 0) return;
-    if(arr[x][y] == arr[x-1][y]) rec(x-1,y);
-    else if(arr[x][y] == arr[x][y-1]) rec(x,y-1);
-    else{
-        res.push(a[x-1]);
-        rec(x-1,y-1);
-    }
-}
 int main(){
-
+    string a,b;
     cin>>a>>b;
 
 
@@ -37,13 +24,6 @@ int main(){
     //     }
     //     cout<<"\n";
     // }
-    cout<<arr[a.size()][b.size()]<<"\n";
-    c = arr[a.size()][b.size()];
-
-    rec(a.size(),b.size());
-    while(!res.empty()){
-        cout<<res.top(); res.pop();
-    }
-
+    cout<<arr[a.size()][b.size()];
     return 0;
 }
