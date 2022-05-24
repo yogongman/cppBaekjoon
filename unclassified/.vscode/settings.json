@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "hash_map": "cpp",
+        "xstring": "cpp",
+        "ostream": "cpp",
+        "iostream": "cpp",
+        "utility": "cpp",
+        "vector": "cpp",
+        "xiosbase": "cpp",
+        "queue": "cpp"
+    }
+}
